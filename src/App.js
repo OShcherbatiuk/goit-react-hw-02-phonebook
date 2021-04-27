@@ -15,10 +15,15 @@ class App extends Component {
     filter: '',
   };
 
-  formSubmitHandler = data =>
-    this.setState(({ contacts }) => ({
-      contacts: [data, ...contacts],
-    }));
+  formSubmitHandler = data => {
+    const { contacts } = this.state;
+    const isNoUnique = contacts.find(contact => contact.name === data.name);
+    isNoUnique
+      ? alert(`${data.name} is alredy in contacts`)
+      : this.setState(({ contacts }) => ({
+          contacts: [data, ...contacts],
+        }));
+  };
 
   changeFilter = event => {
     this.setState({ filter: event.currentTarget.value });
