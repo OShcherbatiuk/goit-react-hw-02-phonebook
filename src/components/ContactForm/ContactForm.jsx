@@ -3,6 +3,8 @@ import { PropTypes } from 'prop-types';
 import shortid from 'shortid';
 import { v4 as uuidv4 } from 'uuid';
 
+import s from './ContactForm.module.css';
+
 const INITIAL_STATE = {
   name: '',
   number: '',
@@ -40,6 +42,7 @@ class ContactForm extends Component {
           <label htmlFor={this.nameInputId}>
             Name
             <input
+              className={s.lable}
               type="text"
               name="name"
               id={this.nameInputId}
@@ -53,6 +56,7 @@ class ContactForm extends Component {
           <label htmlFor={this.numberInputId}>
             Number
             <input
+              className={s.lable}
               type="tel"
               name="number"
               id={this.numberInputId}
@@ -63,7 +67,9 @@ class ContactForm extends Component {
               onChange={this.handleChange}
             />
           </label>
-          <button type="submit">Add contact</button>
+          <button className={s.btn} type="submit">
+            Add contact
+          </button>
         </form>
       </div>
     );
